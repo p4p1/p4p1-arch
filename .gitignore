@@ -1,5 +1,5 @@
 out/
 backup.tar.xz
 backup/
-archlive/airootfs/.vim/
-archlive/airootfs/.tmux/
+archlive/airootfs/root/.vim/
+archlive/airootfs/root/.tmux/
