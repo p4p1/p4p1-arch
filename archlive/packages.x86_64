@@ -61,6 +61,8 @@ lftp
 libfido2
 libusb-compat
 libx11
+lightdm
+lightdm-gtk-greeter
 linux
 linux-atm
 linux-firmware
@@ -164,5 +166,6 @@ xfsprogs
 xl2tpd
 xorg-server
 xorg-xinit
+xorg-apps
 zathura
 zathura-ps
