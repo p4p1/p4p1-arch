@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/p4p1/Documents/github/Uni-2017-2020/my_runner_2017/lib'
+let g:netrw_dirhist_3='/home/p4p1/Documents/github/website/blog/img/lockpicking_intro'
+let g:netrw_dirhist_2='/home/p4p1/back/var/www/html/storage'
+let g:netrw_dirhist_1='/home/p4p1/back/var/www/html'
+let g:netrw_dirhist_0='/home/p4p1/back/var/www/html/vendor'
+let g:netrw_dirhist_9='/home/p4p1/back/var/www/html'
+let g:netrw_dirhist_8='/home/p4p1/back/var/www/html/public/digital_ocean/aws/Aws'
+let g:netrw_dirhist_7='/home/p4p1/back/var/www/html/public/digital_ocean/aws'
+let g:netrw_dirhist_6='/home/p4p1/back/var/www/html/public/digital_ocean'
+let g:netrw_dirhist_5='/home/p4p1/back/var/www/html'

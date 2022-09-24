@@ -11,6 +11,7 @@ bind
 brltty
 broadcom-wl
 btrfs-progs
+chromium
 clonezilla
 cloud-init
 cryptsetup
@@ -138,6 +139,7 @@ terminus-font
 testdisk
 thefuck
 tig
+tint2
 tmux
 tor
 tpm2-tss

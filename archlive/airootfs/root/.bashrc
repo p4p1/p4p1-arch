@@ -54,11 +54,7 @@ shopt -s autocd
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	if hash exa; then
-		alias ls='exa --long --git'
-	else
-		alias ls='ls --color=auto -hGF'
-	fi
+	alias ls='exa --long --git'
 	alias l='ls'
 	alias la='ls -a'
 
@@ -112,7 +108,7 @@ alias pacstore="pacman -Slq | fzf -m --preview 'cat <(pacman -Si {1}) <(pacman -
 alias yaystore="paru -Slq | fzf -m --preview 'cat <(paru -Si {1}) <(paru -Fl {1} | awk \"{print \$2}\")' | xargs -ro  paru -S"
 alias yayskip='paru -S --mflags --skipinteg'
 
-alias androidemu="$HOME/Android/Sdk/emulator/emulator @Pixel_4_API_S"
+alias androidemu='/home/p4p1/Android/Sdk/emulator/emulator @Pixel_4_API_S'
 
 # Directories and movement
 alias ...="cd ../.."
@@ -236,9 +232,9 @@ export CHROME_EXECUTABLE=/usr/bin/chromium
 # Banner script
 sh banner.sh
 
-PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PATH="$PATH:$HOME/Documents/TECH/flutter/flutter/bin"; export PATH;
-PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
+PATH="/home/p4p1/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PATH="$PATH:/home/p4p1/Documents/TECH/flutter/flutter/bin"; export PATH;
+PERL5LIB="/home/p4p1/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/p4p1/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/p4p1/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/p4p1/perl5"; export PERL_MM_OPT;
