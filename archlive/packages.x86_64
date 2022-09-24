@@ -23,6 +23,7 @@ diffutils
 dmidecode
 dmraid
 dnsmasq
+doge
 dosfstools
 e2fsprogs
 edk2-shell
@@ -61,8 +62,6 @@ lftp
 libfido2
 libusb-compat
 libx11
-lightdm
-lightdm-gtk-greeter
 linux
 linux-atm
 linux-firmware
