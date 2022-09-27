@@ -66,7 +66,8 @@ cp -r $BACKUP_FOLDER/.todo $HOME_ARCHLIVE
 [ ! -f $HOME_ARCHLIVE/.xinitrc ] && echo "exec dwm" > $HOME_ARCHLIVE/.xinitrc
 
 # Last step build iso
-#mkarchiso -v -w /tmp/live_workdir/ $PWD/archlive/
+whoami
+mkarchiso -v -w /build_dir/ $PWD/archlive/
 
 echo "All done :)"
 

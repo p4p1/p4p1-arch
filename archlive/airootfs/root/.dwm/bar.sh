@@ -41,6 +41,11 @@ function OS {
 	echo " $(cat /etc/hostname | tr '\n' ' ')"
 }
 
+if hash dwmstat; then
+	dwmstat &
+	exit 0
+fi
+ 
 # The status loop
 while true; do
 	ip=$(ifconfig| grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | tr "\n" " ")

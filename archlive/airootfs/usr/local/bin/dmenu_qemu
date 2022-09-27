@@ -70,10 +70,10 @@ while [ 1 ]; do
 				break
 			fi
 		done
-		qemu-system-x86_64 -m $RAM -enable-kvm -smp $CORES -net nic -rtc base=localtime,clock=host -net user -drive "file=${FILE_NAME},format=qcow2,if=virtio,aio=native,cache.direct=on" -cpu host,kvm=on -cdrom $FILE_IMG -drive "file=/run/media/p4p1/ea0c4d94-d549-412d-ba12-4c54342ad822/VMs/virtio-win-0.1.208.iso,media=cdrom"
+		qemu-system-x86_64 -m $RAM -enable-kvm -smp $CORES -net nic -rtc base=localtime,clock=host -net user -drive "file=${FILE_NAME},format=qcow2,if=virtio,aio=native,cache.direct=on" -cpu host,kvm=on -cdrom $FILE_IMG -drive "file=/run/media/$USER/ea0c4d94-d549-412d-ba12-4c54342ad822/VMs/virtio-win-0.1.208.iso,media=cdrom"
 		break
 	elif [ "${FILE_PATH}" = "android" ]; then
-		/home/p4p1/Android/Sdk/emulator/emulator @Pixel_4_API_S
+		$HOME/Android/Sdk/emulator/emulator @Pixel_4_API_S
 		break
 	elif [ "${FILE_PATH##*.}" = "iso" ]; then
 		qemu-system-x86_64 -m $RAM -enable-kvm -smp $CORES -net nic -rtc base=localtime,clock=host -net user -cpu host,kvm=on -cdrom $FILE_PATH

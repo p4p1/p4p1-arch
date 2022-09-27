@@ -11,7 +11,7 @@
 #  Script to run openvpn
 
 notify-send "Searching for vpn files"
-VPN_FILES=("tor" "synack" $(find $HOME -name "*.ovpn"))
+VPN_FILES=("tor" $(find $HOME -name "*.ovpn"))
 FILE_PATH=$(echo ${VPN_FILES[*]} | tr ' ' '\n' | dmenu "$@")
 pid=$(ps aux | grep "dwmstat" | head -n1 | awk -F' ' '{print $2}')
 
@@ -19,10 +19,6 @@ if [ $FILE_PATH = "tor" ]; then
 	pass=$(echo -n "" | dmenu -p "password:" -c -nb "#000" -nf "#000" -sb "#D16F74" -sf "#000")
 
 	echo $pass | sudo -S -u tor tor &
-elif [ $FILE_PATH = "synack" ]; then
-	pass=$(echo -n "" | dmenu -p "password:" -c -nb "#000" -nf "#000" -sb "#D16F74" -sf "#000")
-
-	echo $pass | sudo -S /home/p4p1/Documents/work/synack/connect.sh &
 else
 	raro.x "openvpn $FILE_PATH" &
 fi

@@ -10,8 +10,8 @@
 #  later unpacking
 
 BDIR=/tmp/backup
-CONF_FILES=(.vimrc .tmux.conf .bashrc .fzf.bash .tigrc .gdbinit .inputrc .conkyrc .wallpaper.png .Xresources .packages .todo .tint2rc)
-CONF_DIRS=(.vim/ .tmux/ .bash_configs/ .dwm/ .fzf/ .peda/ .xvwm/ .newsboat/ .themes/)
+CONF_FILES=(.vimrc .tmux.conf .bashrc .fzf.bash .tigrc .gdbinit .inputrc .conkyrc .wallpaper.png .Xresources .packages .tint2rc)
+CONF_DIRS=(.vim/ .tmux/ .bash_configs/ .dwm/ .fzf/ .peda/ .xvwm/ .themes/)
 SOURCE=.source/
 
 function move_to_folder() {
