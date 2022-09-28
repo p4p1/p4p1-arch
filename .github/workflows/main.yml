@@ -8,4 +8,9 @@ jobs:
     name: 'iso builder'
     using: 'docker'
     image: 'Dockerfile'
+    env:
+      BUILD_CONTAINER: ${{ matrix.compiler }}-build-container
+    steps:
+      run: |
+        docker run --priviledge --name $BUILD_CONTAINER
 
