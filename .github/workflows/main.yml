@@ -5,6 +5,7 @@ on: [push]
 jobs:
   main:
     name: 'iso builder'
+    runs-on: archlinux-latest
     image: 'Dockerfile'
 
     env:
