@@ -1,12 +1,10 @@
 name: 'Build iso'
-description: 'A github action to build the iso'
 
 on: [push]
 
 jobs:
   main:
     name: 'iso builder'
-    using: 'docker'
     image: 'Dockerfile'
 
     env:
