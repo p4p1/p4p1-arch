@@ -6,7 +6,6 @@ jobs:
   main:
     name: 'iso builder'
     runs-on: archlinux-latest
-    image: 'Dockerfile'
 
     env:
       BUILD_CONTAINER: ${{ matrix.compiler }}-build-container
