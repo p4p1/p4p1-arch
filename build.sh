@@ -12,6 +12,7 @@
 BACKUP_FILE=./backup.tar.xz
 LINK_TO_BACKUP=https://leosmith.xyz/rice/$BACKUP_FILE
 HOME_ARCHLIVE=./archlive/airootfs/root
+ROOT_ARCHLIVE=./archlive/airootfs
 BIN_ARCHLIVE=./archlive/airootfs/usr/local/bin
 BACKUP_FOLDER=./backup/
 SOURCE_FOLDER=./backup/.source
@@ -60,6 +61,9 @@ cp -r $BACKUP_FOLDER/.fzf/ $HOME_ARCHLIVE
 cp -r $BACKUP_FOLDER/.dwm/ $HOME_ARCHLIVE
 cp -r $BACKUP_FOLDER/.tint2rc $HOME_ARCHLIVE
 cp -r $BACKUP_FOLDER/.tigrc $HOME_ARCHLIVE
+
+# move fonts
+cp -r $BACKUP_FOLDER/.dwm/fonts/* $ROOT_ARCHLIVE/usr/share/fonts
 
 # setup for startx
 [ ! -f $HOME_ARCHLIVE/.xinitrc ] && echo "exec dwm" > $HOME_ARCHLIVE/.xinitrc
