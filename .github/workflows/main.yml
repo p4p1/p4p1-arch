@@ -1,0 +1,9 @@
+name: 'Build iso'
+description: 'A github action to build the iso'
+
+on: [push]
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
