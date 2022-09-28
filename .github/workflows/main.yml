@@ -6,10 +6,9 @@ jobs:
   main:
     name: 'iso builder'
     runs-on: archlinux-latest
-
-    env:
-      BUILD_CONTAINER: ${{ matrix.compiler }}-build-container
+    uses: ./
 
     steps:
-      - run: docker run --priviledge --name $BUILD_CONTAINER
+      - run: docker build -t iso_builder
+      - run: docker run --privileged iso_builder
 
