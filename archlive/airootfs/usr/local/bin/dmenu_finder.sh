@@ -15,7 +15,7 @@
 
 DIR_LIST_FILE=/tmp/dirlist
 LONG_LINE=$(python -c "print('a' * 4000)")
-SELECTED=$((cat /tmp/dirlist ; dmenu_path ; echo $LONG_LINE) | dmenu -fn "Hack Nerd Font Mono:size=12" -nb "#393939" -nf "#bbbbbb" -sb "#443166" -sf "#939393" -h 25 -bw 5 -l 10 -c)
+SELECTED=$((cat /tmp/dirlist ; dmenu_path ; echo $LONG_LINE) | dmenu -fn "Hack Nerd Font Mono:size=12" -nb "#393939" -nf "#bbbbbb" -sb "#FF875F" -sf "#393939" -h 25 -bw 5 -l 10 -c)
 
 if [ -z "$SELECTED" ];then
 	exit

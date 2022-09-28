@@ -60,7 +60,6 @@ cp -r $BACKUP_FOLDER/.fzf/ $HOME_ARCHLIVE
 cp -r $BACKUP_FOLDER/.dwm/ $HOME_ARCHLIVE
 cp -r $BACKUP_FOLDER/.tint2rc $HOME_ARCHLIVE
 cp -r $BACKUP_FOLDER/.tigrc $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.todo $HOME_ARCHLIVE
 
 # setup for startx
 [ ! -f $HOME_ARCHLIVE/.xinitrc ] && echo "exec dwm" > $HOME_ARCHLIVE/.xinitrc
