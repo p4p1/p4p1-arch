@@ -3,3 +3,4 @@ backup.tar.xz
 backup/
 archlive/airootfs/root/.vim/
 archlive/airootfs/root/.tmux/
+archlive/airootfs/opt/

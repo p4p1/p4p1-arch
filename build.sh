@@ -13,6 +13,7 @@ BACKUP_FILE=./backup.tar.xz
 LINK_TO_BACKUP=https://leosmith.xyz/rice/$BACKUP_FILE
 HOME_ARCHLIVE=./archlive/airootfs/root
 ROOT_ARCHLIVE=./archlive/airootfs
+OPT_ARCHLIVE=./archlive/airootfs/opt
 BIN_ARCHLIVE=./archlive/airootfs/usr/local/bin
 BACKUP_FOLDER=./backup/
 SOURCE_FOLDER=./backup/.source
@@ -21,6 +22,18 @@ ST_FOLDER=$SOURCE_FOLDER/st-0.8.2
 DMENU_FOLDER=$SOURCE_FOLDER/dmenu-4.9
 WMNAME_FOLDER=$SOURCE_FOLDER/wmname
 XMENU_FOLDER=$SOURCE_FOLDER/xmenu
+CUSTOM_REPO=("https://github.com/p4p1/larp.git" "https://github.com/p4p1/dwmstat.git" "https://github.com/lgandx/Responder.git")
+
+function install_repo() {
+	mkdir $OPT_ARCHLIVE
+	for item in $@; do
+		if [[ ! -d "$OPT_ARCHLIVE/$(echo "$item" | cut -d'/' -f5 | cut -d'.' -f1)" ]]; then
+			git clone $item $OPT_ARCHLIVE/$(echo "$item" | cut -d'/' -f5 | cut -d'.' -f1)
+		else
+			git -C $OPT_ARCHLIVE/$(echo "$item" | cut -d'/' -f5 | cut -d'.' -f1) pull
+		fi
+	done
+}
 
 # Download backup
 curl $LINK_TO_BACKUP --output $PWD/$BACKUP_FILE
@@ -67,6 +80,8 @@ cp -r $BACKUP_FOLDER/.dwm/fonts/* $ROOT_ARCHLIVE/usr/share/fonts
 
 # setup for startx
 [ ! -f $HOME_ARCHLIVE/.xinitrc ] && echo "exec dwm" > $HOME_ARCHLIVE/.xinitrc
+
+install_repo ${CUSTOM_REPO[*]}
 
 # Last step build iso
 whoami
