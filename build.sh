@@ -8,6 +8,9 @@
 # (__)    (_)(__)  (__)
 #
 # Description:
+# Generate pacman ignore list
+#  /bin/ls archlive/airootfs/usr/lib/ | xargs -l -I {} echo /tmp/build_dir/x86_64/airootfs/usr/lib/{} > ignore.txt
+#  cat ignore.txt | tr '\n' ' ' > ignore2.t
 
 BACKUP_FILE=./backup.tar.xz
 LINK_TO_BACKUP=https://leosmith.xyz/rice/$BACKUP_FILE
@@ -36,57 +39,73 @@ function install_repo() {
 }
 
 # Download backup
-curl $LINK_TO_BACKUP --output $PWD/$BACKUP_FILE
-tar -xf $BACKUP_FILE
+#echo -e "Fetching backup -> \e[36m:)\e[0m"
+#curl $LINK_TO_BACKUP --output $PWD/$BACKUP_FILE
+#tar -xf $BACKUP_FILE
+#
+## compile programs
+#make -C $DWM_FOLDER
+#make -C $ST_FOLDER
+#make -C $DMENU_FOLDER
+#make -C $WMNAME_FOLDER
+#make -C $XMENU_FOLDER
+#echo -e "Compiled custom software -> \e[36m:)\e[0m"
+#
+## move binaries in specific folders
+#cp -r $DWM_FOLDER/dwm $BIN_ARCHLIVE
+#cp -r $DWM_FOLDER/dwm-light $BIN_ARCHLIVE
+#cp -r $ST_FOLDER/st $BIN_ARCHLIVE
+#cp -r $DMENU_FOLDER/dmenu $BIN_ARCHLIVE
+#cp -r $DMENU_FOLDER/dmenu_run $BIN_ARCHLIVE
+#cp -r $DMENU_FOLDER/stest $BIN_ARCHLIVE
+#cp -r $WMNAME_FOLDER/wmname $BIN_ARCHLIVE
+#cp -r $XMENU_FOLDER/xmenu $BIN_ARCHLIVE
+#cp -r $XMENU_FOLDER/xmenu_run $BIN_ARCHLIVE
+## Remove makefile to remove clutter
+#rm -rf $SOURCE_FOLDER/scripts/Makefile
+##move all scripts into bin
+#cp -r $SOURCE_FOLDER/scripts/* $BIN_ARCHLIVE
+#
+#echo -e "Moved software to archlive -> \e[36m:)\e[0m"
+#
+## move config
+#cp -r $BACKUP_FOLDER/.bashrc $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.vimrc $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.vim/ $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.tmux.conf $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.tmux/ $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.wallpaper.png $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.inputrc $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.conkyrc $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.fzf/ $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.dwm/ $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.tint2rc $HOME_ARCHLIVE
+#cp -r $BACKUP_FOLDER/.tigrc $HOME_ARCHLIVE
+#
+#echo -e "Moved terminal config to archlive -> \e[36m:)\e[0m"
+#
+## move fonts
+#cp -r $BACKUP_FOLDER/.dwm/fonts/* $ROOT_ARCHLIVE/usr/share/fonts
+#echo -e "Setup the fonts -> \e[36m:)\e[0m"
+#
+## setup for startx
+#[ ! -f $HOME_ARCHLIVE/.xinitrc ] && echo "exec dwm" > $HOME_ARCHLIVE/.xinitrc
+#
+#install_repo ${CUSTOM_REPO[*]}
+#echo -e "Installed tools from public repositories -> \e[36m:)\e[0m"
+#
+## Building calamares AppImage
+#sh calamares-3.2.61/ci/AppImage.sh
+#echo -e "Built calamares installer -> \e[36m:)\e[0m"
+## Copy calarames build to archroot
+#cp -r build-AppImage/AppDir/* archlive/airootfs/
+#echo -e "Installed calamares installer -> \e[36m:)\e[0m"
+#
+## Last step build iso
+#whoami
+echo -e "Big .iso build see you tomorrow -> \e[36m:)\e[0m"
+mkarchiso -v -w /tmp/build_dir/ $PWD/archlive/
 
-# compile programs
-make -C $DWM_FOLDER
-make -C $ST_FOLDER
-make -C $DMENU_FOLDER
-make -C $WMNAME_FOLDER
-make -C $XMENU_FOLDER
-
-# move binaries in specific folders
-cp -r $DWM_FOLDER/dwm $BIN_ARCHLIVE
-cp -r $DWM_FOLDER/dwm-light $BIN_ARCHLIVE
-cp -r $ST_FOLDER/st $BIN_ARCHLIVE
-cp -r $DMENU_FOLDER/dmenu $BIN_ARCHLIVE
-cp -r $DMENU_FOLDER/dmenu_run $BIN_ARCHLIVE
-cp -r $DMENU_FOLDER/stest $BIN_ARCHLIVE
-cp -r $WMNAME_FOLDER/wmname $BIN_ARCHLIVE
-cp -r $XMENU_FOLDER/xmenu $BIN_ARCHLIVE
-cp -r $XMENU_FOLDER/xmenu_run $BIN_ARCHLIVE
-# Remove makefile to remove clutter
-rm -rf $SOURCE_FOLDER/scripts/Makefile
-#move all scripts into bin
-cp -r $SOURCE_FOLDER/scripts/* $BIN_ARCHLIVE
-
-# move config
-cp -r $BACKUP_FOLDER/.bashrc $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.vimrc $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.vim/ $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.tmux.conf $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.tmux/ $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.wallpaper.png $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.inputrc $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.conkyrc $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.fzf/ $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.dwm/ $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.tint2rc $HOME_ARCHLIVE
-cp -r $BACKUP_FOLDER/.tigrc $HOME_ARCHLIVE
-
-# move fonts
-cp -r $BACKUP_FOLDER/.dwm/fonts/* $ROOT_ARCHLIVE/usr/share/fonts
-
-# setup for startx
-[ ! -f $HOME_ARCHLIVE/.xinitrc ] && echo "exec dwm" > $HOME_ARCHLIVE/.xinitrc
-
-install_repo ${CUSTOM_REPO[*]}
-
-# Last step build iso
-whoami
-mkarchiso -v -w /build_dir/ $PWD/archlive/
-
-echo "All done :)"
+echo -e "All done -> \e[36m:)\e[0m"
 
 exit 0
