@@ -34,6 +34,7 @@
 "  <Leader>v       -> open netrw
 "  <Leader>gb      -> open git blame
 "  <Leader>s       -> set spell
+"  <Leader>l       -> open latex previewer
 "  <Leader>hd      -> Go in hexdump mode (using xxd)
 "  <Leader>hb      -> Revert from hexdump mode (using xxd)
 "  <Leader>e64     -> encode selected to b64
@@ -129,6 +130,8 @@ let g:blog_url = "https://leosmith.xyz/blog/"
 let g:xss_bomb_url = "https:/localhost:8000"
 "let g:xss_bomb_url = "https:/leosmith.xyz:8000"
 
+let g:livepreview_previewer = 'zathura'
+
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
@@ -190,6 +193,7 @@ noremap  <Leader>? :ALEDetail<CR>
 noremap  <Leader>e :Files<CR>
 noremap  <Leader>f :Rg<CR>
 noremap  <Leader>C :Colors<CR>
+noremap  <Leader>l :LLPStartPreview<CR>
 
 " disable arrow keys
 inoremap <Up> <NOP>
@@ -363,6 +367,7 @@ Plug 'vim-scripts/timestamp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/fzf',{'do':{->fzf#install()}}
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'

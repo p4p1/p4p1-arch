@@ -1,6 +1,7 @@
 out/
 backup.tar.xz
 backup/
+build-AppImage/
 calamares-3.2.61.tar.gz
 calamares-3.2.61/
 archlive/airootfs/root/.vim/

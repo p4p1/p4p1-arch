@@ -155,7 +155,7 @@ ac_disconnected_cmd =
 #-------------------------------------
 # Button 1
 button = new
-button_icon = /home/p4p1/.dwm/tint2/tux.png
+button_icon = ~/.dwm/tint2/tux.png
 button_lclick_command = jgmenu_run
 button_rclick_command = 
 button_mclick_command = 
@@ -171,7 +171,7 @@ button_max_icon_size = 0
 #-------------------------------------
 # Button 1
 button = new
-button_icon = /home/p4p1/.dwm/tint2/search-light.png
+button_icon = ~/.dwm/tint2/search.png
 button_text = SEARCH
 button_lclick_command = dmenu_finder.sh
 button_rclick_command = 
@@ -188,7 +188,7 @@ button_max_icon_size = 0
 #-------------------------------------
 # Button 2
 button = new
-button_icon = /home/p4p1/.dwm/tint2/expose-light.png
+button_icon = ~/.dwm/tint2/expose.png
 button_text = EXPOSE
 button_lclick_command = skippy-xd
 button_rclick_command = 
